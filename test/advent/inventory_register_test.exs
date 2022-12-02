@@ -13,4 +13,16 @@ defmodule Advent.InventoryRegisterTest do
     assert length(Enum.at(output, 3).inventory) == 3
     assert length(Enum.at(output, 4).inventory) == 1
   end
+
+  test ".highest_calorie_elf_total returns the calorie count of the elf holding the highest number of calories" do
+    output = InventoryRegister.from_file("test/fixtures/inventory_register.txt")
+
+    assert InventoryRegister.highest_calorie_elf_total(output) == 24000
+  end
+
+  test ".highest_three_calorie_totals returns the calorie sum of the three highest calorie owning elves" do
+    output = InventoryRegister.from_file("test/fixtures/inventory_register.txt")
+
+    assert InventoryRegister.highest_three_calorie_totals(output) == 45000
+  end
 end
